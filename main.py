@@ -142,7 +142,7 @@ def shine(encoded: str, width: int=60) -> NoReturn:
             '%d%%'%percent
         length = round(unreal/expected*width)
         predicted = real*expected/unreal
-        sys.stdout.write("\r%s[%s>%s] %.2f/%.2f"%(s, '='*(length, 59)[length == 60], ' '*(width - 1 - length), real, predicted))
+        sys.stdout.write("\r%s[%s>%s] %.2f/%.2f"%(s, '='*(length, width - 1)[length == width], ' '*(width - 1 - length), real, predicted))
     # init
     expected = counting(encoded)
     start = time.time()
