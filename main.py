@@ -170,6 +170,6 @@ def shine(encoded: str, width: int=60) -> NoReturn:
 
 if __name__ == "__main__":
     for i in range(2):
-        while not testword2 := getpass.getpass("Enter what you want to say out~: "): ...
+        while not (testword2 := getpass.getpass("Enter what you want to say out~: ")): ...
         shine(encode(testword2))
     #shine(encode("Fuck! "), width=30)
