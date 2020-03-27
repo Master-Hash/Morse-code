@@ -118,7 +118,7 @@ print()
 (emerge 的旋转风格在进度条.py 里面)
 """
 # 会 multiprocessing 的大神欢迎指教
-def shine(encoded: str='', width: int=60) -> NoReturn:
+def shine(encoded: str, width: int=60) -> NoReturn:
     def opening() -> NoReturn:
         keybd_event(20, 0, 257, 0)
         keybd_event(20, 0, 2, 0)
@@ -144,7 +144,6 @@ def shine(encoded: str='', width: int=60) -> NoReturn:
         predicted = real*expected/unreal
         sys.stdout.write("\r%s[%s>%s] %.2f/%.2f      "%(s, '='*(length, width - 1)[length == width], ' '*(width - 1 - length), real, predicted))
     # init
-    while encoded := getpass.getpass("Enter what you want to say out~: "): ...
     expected = counting(encoded)
     start = time.time()
     unreal, length, percent = 0, 0, 0
@@ -171,5 +170,6 @@ def shine(encoded: str='', width: int=60) -> NoReturn:
 
 if __name__ == "__main__":
     for i in range(2):
-        shine(encode())
+        while not testword2 := getpass.getpass("Enter what you want to say out~: "): ...
+        shine(encode(testword2))
     #shine(encode("Fuck! "), width=30)
