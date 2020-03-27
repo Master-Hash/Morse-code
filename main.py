@@ -11,6 +11,14 @@ if not platform.system() == "Windows":
 else:
     import winsound
 
+# 关于识别是否处于 idle 的滑稽写法
+def dec() -> bool:
+    from sys import stdin
+    return 'idlelib' in str(type(stdin))
+
+if dec():
+    warnings.warn("It seems you are using idle. Progress bar will not show correctly. ")
+
 # 无验证初始化
 # 暂时不能编码中文（我爱你除外）
 CODE = {'A': '.-',     'B': '-...',   'C': '-.-.',
@@ -53,11 +61,6 @@ for i in CODE:
 
 for i in range(65, 65+26):
     CODE[chr(i+32)] = CODE[chr(i)] # 小写字母
-
-# 关于识别是否处于 idle 的滑稽写法
-def dec() -> bool:
-    from sys import stdin
-    return 'idlelib' in str(type(stdin))
 
 def encode(a: str) -> str:
     ans: str = ''
