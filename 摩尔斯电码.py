@@ -3,6 +3,7 @@ from win32api import keybd_event
 from win32con import WM_KEYDOWN, WM_KEYUP, KEYEVENTF_KEYUP # 256, 257, 2
 from typing import NoReturn
 import time, os, sys, warnings
+import getpass
 
 # 本程序针对 Windows 设计，Linux 在控制台及库的命令有所不同。
 if not platform.system() == "Windows":
@@ -205,6 +206,10 @@ class new:
         
     def shine(self, encoded: str='../.-../---/...-/./-.--/---/..-') -> NoReturn:
         cnt: float = 0
+        self.start = time.time()
+        self.unreal = 0
+        # 应该在 shine 里面而不是 init 里面初始化！
+        # 函数多好的，哪里犯得着用什么类！
         tmp: str = encoded[1:] + '^'
         def opening() -> NoReturn:
             keybd_event(20, 0, 257, 0)
@@ -251,3 +256,5 @@ class new:
 if __name__ == "__main__":
     a = new(testword)
     a.shine(testword)
+    testword2 = encode(getpass.getpass("Enter what you want to say out: "))
+    a.shine(testword2)
