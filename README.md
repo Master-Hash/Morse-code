@@ -18,7 +18,7 @@
 
 # 已知问题：
 由于本程序的依赖过重，加之本人在 Surface 下开发~~网课摸鱼~~，因此 Linux 下，
-或者 python 3.8 以下（Xecades 的 python 3.7 导入 DLL 出错，也可能是测试版系统的锅），
+或者 python 3.8 以下（Xecades 的 python 3.7 导入 DLL 出错，也可能是测试版系统的锅）（以及海象运算符），
 都有可能出现无法运行的 bug，如果确定是代码有误而非兼容性问题，请提交 issue。
 
 因为 idle 里 sys 的特性，无法在 idle 里正常运行。请开 powershell/pwsh/cmd/IDE 内嵌终端。
