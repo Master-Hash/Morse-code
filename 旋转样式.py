@@ -9,6 +9,6 @@ for i in range(1<<20):
 import time
 for i in range(1<<20):
     # i % 4 = i & 3
-    sys.stdout("\r%s"%e[i&3]); time.sleep(1) # 我也不太清楚睡多久QAQ
+    sys.stdout.write("\r%s"%e[i&3]); time.sleep(1) # 我也不太清楚睡多久QAQ
 
 # 一定要学多线程/多进程！
